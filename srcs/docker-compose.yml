@@ -43,7 +43,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/zhenya/data/db
+      device: /home/saltmer/data/db
 
   wp:
     name: wp
@@ -51,7 +51,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/zhenya/data/wp
+      device: /home/saltmer/data/wp
 
 networks:
   network_project:
