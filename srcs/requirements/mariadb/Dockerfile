@@ -4,8 +4,11 @@ RUN apt update
 RUN apt install -y mariadb-server curl
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
-COPY ./tools/* /tmp/
+COPY ./tools/db.sql /
 
 EXPOSE 3306
 
-CMD bash /tmp/start.sh
+RUN service mysql start && mysql < /db.sql
+RUN rm -f db.sql
+
+CMD /usr/bin/mysqld_safe

@@ -9,4 +9,4 @@ fclean: clean
 	sudo docker volume rm $(docker volume ls -q)
 	sudo docker network rm $(docker network ls -q)
 re:	
-	sudo docker-compose -f srsc/docker-compose.yml up --build
+	sudo docker-compose -f srcs/docker-compose.yml up --build
