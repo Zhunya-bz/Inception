@@ -1,9 +1,5 @@
 #!/bin/bash
 
-set -xve
-
-rm /var/www/html/wordpress/wp-config.php
-
 # подключение к базе данных
 wp config create --dbname=$DB_NAME --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=$DB_HOST --path="/var/www/html" --allow-root --skip-check
 
