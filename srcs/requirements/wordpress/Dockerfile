@@ -22,6 +22,6 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 RUN wp core download --allow-root
 
 # static website
-COPY conf/index.html /var/www/index.html
+# COPY conf/index.html /var/www/index.html
 
 CMD bash /var/www/start.sh

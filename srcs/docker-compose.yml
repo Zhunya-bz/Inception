@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.3'
 
 services:
   mariadb:
@@ -28,7 +28,7 @@ services:
     restart: always
     env_file: .env
     volumes:
-      -wp:/var/www/html
+      - wp:/var/www/html
     networks:
       - network_project
     depends_on:
@@ -38,7 +38,6 @@ services:
 
 volumes:
   db:
-    name: db
     driver: local
     driver_opts:
       type: none
@@ -46,8 +45,7 @@ volumes:
       device: /home/saltmer/data/db
 
   wp:
-    name: wp
-    wriver: local
+    driver: local
     driver_opts:
       type: none
       o: bind
