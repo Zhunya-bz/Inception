@@ -1,8 +1,26 @@
-version: '3.3'
+version: '3.7'
+
+volumes:
+  db:
+    name: db
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /home/saltmer/data/db
+
+  wp:
+    name: wp
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: /home/saltmer/data/wp
 
 services:
   mariadb:
     container_name: mariadb
+    image: mariadb
     build: ./requirements/mariadb
     restart: always
     env_file: .env
@@ -13,17 +31,19 @@ services:
 
   wordpress:
     container_name: wordpress
+    image: wordpress
     build: ./requirements/wordpress
     env_file: .env
     volumes:
-      - wp:/var/www/html/wordpress
+      - wp:/var/www/html
     networks:
       - network_project
     depends_on:
-      - mariadb    
+      - mariadb
 
   nginx:
     container_name: nginx
+    image: nginx
     build: ./requirements/nginx
     restart: always
     env_file: .env
@@ -36,22 +56,8 @@ services:
     ports:
       - "443:443"
 
-volumes:
-  db:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/saltmer/data/db
-
-  wp:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/saltmer/data/wp
-
 networks:
   network_project:
+    name: network_project
     driver: bridge  
     
