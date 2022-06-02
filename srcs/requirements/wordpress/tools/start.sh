@@ -10,7 +10,7 @@ chown -R 755 /var/www/*
 wp core install --url="$DOMAIN_NAME" --title="ecole 42" --admin_user="$WP_ADMIN" --admin_password="$WP_ADMIN_PASSWORD" --admin_email="$WP_ADMIN_EMAIL" --path="$WP_PATH" --allow-root
 
 # создаем еще пользователя
-wp user create "$MYSQL_USER" kanaeva.bz@yandex.ru --role=author --user_pass="$MYSQL_USER_PASSWORD" --allow-root --path="$WP_PATH"
+wp user create "$MYSQL_USER" kanaeva.bz@yandex.ru --role=author --user_pass="$MYSQL_PASSWORD" --allow-root --path="$WP_PATH"
 
 # тема для wordpress
 # wp theme install inspiro --activate --allow-root

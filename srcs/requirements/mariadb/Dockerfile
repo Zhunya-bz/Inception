@@ -18,6 +18,7 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./tools/* /tmp/
 
 RUN chmod +x /tmp/start.sh
+# RUN chown mysql:mysql /var/lib/mysqld
 
 EXPOSE 3306
 # ENTRYPOINT ["bash"] 
