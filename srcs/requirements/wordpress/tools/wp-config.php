@@ -3,16 +3,16 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 
-define( 'DB_NAME', 'wordpress');
+define( 'DB_NAME', '${DB_NAME}'); // идет замена в скрипте start.sh
 
 /** MySQL database username */
-define( 'DB_USER', 'saltmer' );
+define( 'DB_USER', '${MYSQL_USER}' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'saltmer' );
+define( 'DB_PASSWORD', '${MYSQL_PASSWORD}');
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mariadb');
+define( 'DB_HOST', '${DB_HOST}');
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

@@ -3,6 +3,13 @@ cd /var/www/html
 wp core download --allow-root
 # подключение к базе данных
 # wp config create --dbname=$DB_NAME --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=$DB_HOST --path="/var/www/wordpress" --allow-root --skip-check
+
+# замена текста в конфиге на переменные среды
+sed -i -e "s/\${DB_NAME}/${DB_NAME}/g" /var/www/wp-config.php
+sed -i -e "s/\${MYSQL_USER}/${MYSQL_USER}/g" /var/www/wp-config.php
+sed -i -e "s/\${MYSQL_PASSWORD}/${MYSQL_PASSWORD}/g" /var/www/wp-config.php
+sed -i -e "s/\${DB_HOST}/${DB_HOST}/g" /var/www/wp-config.php
+
 mv /var/www/wp-config.php /var/www/html/wp-config.php
 chown -R www-data:www-data /var/www/*
 chown -R 755 /var/www/*
